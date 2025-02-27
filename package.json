@@ -1,6 +1,6 @@
 {
   "name": "next-pwa",
-  "version": "5.6.0",
+  "version": "5.7.0",
   "description": "Next.js with PWA, powered by workbox.",
   "main": "index.js",
   "repository": "https://github.com/shadowwalker/next-pwa",
@@ -14,16 +14,25 @@
     "web",
     "service-worker"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js --mode=production",
+    "prepublishOnly": "npm run build"
+  },
   "dependencies": {
-    "babel-loader": "^8.2.5",
+    "babel-loader": "^9.2.1",
     "clean-webpack-plugin": "^4.0.0",
     "globby": "^11.0.4",
-    "terser-webpack-plugin": "^5.3.3",
-    "workbox-webpack-plugin": "^6.5.4",
-    "workbox-window": "^6.5.4"
+    "terser-webpack-plugin": "^5.3.11",
+    "workbox-webpack-plugin": "^7.3.0",
+    "workbox-window": "^7.3.0"
   },
   "devDependencies": {
-    "webpack": "^5.74.0"
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^6.0.1"
   },
   "peerDependencies": {
     "next": ">=9.0.0"
